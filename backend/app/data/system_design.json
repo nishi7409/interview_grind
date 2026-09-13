@@ -1,0 +1,44 @@
+{
+  "source": "Structure derived from the uploaded HelloInterview 'System Design in a Hurry' Introduction chapter (Interviewer Rubric, interview types, prep guidance, common questions). The Introduction is the only chapter present in the PDF; Core Concepts / Key Technologies / Delivery Framework bodies were not included, so the delivery framework below is a standard, widely-taught skeleton seeded for expansion and the topic bodies are placeholders to be filled from the full guide. No PDF content was fabricated.",
+  "schema_version": 1,
+  "delivery_framework": {
+    "title": "Delivery Framework",
+    "note": "A repeatable track to run on during the interview. Standard skeleton (full step bodies are in the complete guide, not in the uploaded Introduction).",
+    "steps": [
+      {"name": "Requirements", "duration": "~5 min", "detail": "Clarify functional requirements (what the system does) and non-functional requirements (scale, latency, availability, consistency). Establish scope and what is explicitly out of scope."},
+      {"name": "Core Entities & API", "duration": "~5 min", "detail": "Identify the core entities/data the system manages, then define the API (endpoints or RPCs) the client uses to interact with them."},
+      {"name": "High-Level Design", "duration": "~10-15 min", "detail": "Draw the main components (clients, services, datastores, queues) and the data flow that satisfies the functional requirements end to end."},
+      {"name": "Deep Dives", "duration": "~10 min", "detail": "Revisit the non-functional requirements and harden the design: scaling bottlenecks, caching, sharding/partitioning, replication, consistency, and failure modes."}
+    ]
+  },
+  "interview_types": [
+    {"name": "Product Design", "detail": "Design the system behind a product (e.g. a ride-sharing app). Primary focus of the guide."},
+    {"name": "Infrastructure Design", "detail": "Design an infrastructure use case, e.g. a rate limiter or message queue. Primary focus of the guide."},
+    {"name": "Object-Oriented / Low-Level Design", "detail": "Design the class structure of a system. Covered by a separate 'Low-Level Design in a Hurry' guide."},
+    {"name": "Frontend Design", "detail": "Design a complex frontend/client architecture."},
+    {"name": "Applied ML System Design", "detail": "Design an ML-backed system. Covered by a separate 'ML System Design in a Hurry' guide."},
+    {"name": "ML Infrastructure Design", "detail": "Design the infrastructure that trains/serves ML models."}
+  ],
+  "rubric": [
+    {"dimension": "Problem Navigation", "detail": "Decompose an under-specified problem, prioritize, and navigate to a solution. Often the most important dimension.", "failures": ["Poor requirement gathering", "Focusing on trivia", "Getting stuck", "Failing to deliver a working system"]},
+    {"dimension": "Solution Design", "detail": "Solve each piece and integrate them into a cohesive whole. Relies on Core Concepts.", "failures": ["Weak core concepts", "Ignoring scaling / performance", "Spaghetti design"]},
+    {"dimension": "Technical Excellence", "detail": "Apply best practices and current technology correctly. Relies on Key Technologies.", "failures": ["Unaware of available tech", "Antiquated approaches", "Cannot apply technology", "Misses common patterns"]},
+    {"dimension": "Communication & Collaboration", "detail": "Explain complex ideas clearly, take feedback, and collaborate.", "failures": ["Unclear communication", "Defensiveness", "Getting lost in the weeds"]}
+  ],
+  "topics": [
+    {"slug": "core-concepts", "title": "Core Concepts", "summary": "Foundational building blocks: scaling, CAP theorem, consistency models, availability, and partitioning. (Bodies to be populated from the full guide.)", "status": "seed"},
+    {"slug": "key-technologies", "title": "Key Technologies", "summary": "Common building blocks referenced in the guide (e.g. Redis for caching, Elasticsearch + inverted indexes for search). (Bodies to be populated from the full guide.)", "status": "seed"},
+    {"slug": "patterns", "title": "Patterns", "summary": "Recurring design patterns for common sub-problems. (Bodies to be populated from the full guide.)", "status": "seed"}
+  ],
+  "questions": [
+    {"slug": "design-ride-sharing", "title": "Design a Ride-Sharing Service (like Uber)", "type": "Product Design", "difficulty": "Hard", "prompt": "Design the backend for a ride-sharing service. Support riders requesting rides, matching to nearby drivers, real-time location tracking, and trip lifecycle.", "considerations": ["Geospatial indexing for driver matching", "Real-time location updates at scale", "Trip state machine and consistency", "Surge pricing", "Payments"]},
+    {"slug": "design-rate-limiter", "title": "Design a Rate Limiter", "type": "Infrastructure Design", "difficulty": "Medium", "prompt": "Design a rate limiter that restricts how many requests a client may make in a time window.", "considerations": ["Token bucket vs sliding window vs fixed window", "Distributed state (Redis) and race conditions", "Per-user vs per-IP vs per-API-key", "Fail-open vs fail-closed", "Response headers (Retry-After)"]},
+    {"slug": "design-instagram", "title": "Design Instagram / a Photo Feed", "type": "Product Design", "difficulty": "Hard", "prompt": "Design a photo-sharing service with a home feed of posts from followed users.", "considerations": ["Fan-out on write vs read", "Feed ranking", "Media storage + CDN", "Follower graph at scale"]},
+    {"slug": "design-yelp", "title": "Design Yelp / Nearby Business Search", "type": "Product Design", "difficulty": "Medium", "prompt": "Design a service to find and review businesses near a location.", "considerations": ["Geospatial search (geohash / quadtree)", "Search + ranking (Elasticsearch, inverted index)", "Reviews and ratings aggregation", "Read-heavy caching"]},
+    {"slug": "design-google-docs", "title": "Design Google Docs / Collaborative Editing", "type": "Product Design", "difficulty": "Hard", "prompt": "Design a collaborative real-time document editor.", "considerations": ["Operational Transformation vs CRDTs", "Real-time sync (WebSockets)", "Conflict resolution", "Presence and cursors", "Persistence and versioning"]}
+  ],
+  "prep_guidance": {
+    "time": "If brand new to system design, dedicate focused time or spread study over 3-4 weeks; less if already experienced.",
+    "how_to_use": "Read in order and skip what you already know. Practice with worked solutions to common problems, then attempt real practice problems and quizzes."
+  }
+}
