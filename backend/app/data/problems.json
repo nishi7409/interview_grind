@@ -1,0 +1,275 @@
+{
+  "source": "Curated static seed dataset of classic interview problems. LeetCode has no official public API and scraping their GraphQL endpoint is fragile and ToS-gray, so this project ships a curated JSON seed. Python-only. Each problem carries an entry_point (Solution method name), starter_code, and test_cases (args + expected) used by the Python sandbox to run and grade submissions. To expand, add records matching this schema (or point PROBLEMS_PATH at a larger dump).",
+  "schema_version": 2,
+  "language": "python",
+  "problems": [
+    {
+      "slug": "two-sum",
+      "id": 1,
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "tags": ["Array", "Hash Table"],
+      "companies": ["Amazon", "Google", "Apple"],
+      "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.",
+      "examples": [
+        {"input": "nums = [2,7,11,15], target = 9", "output": "[0,1]", "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."},
+        {"input": "nums = [3,2,4], target = 6", "output": "[1,2]", "explanation": ""},
+        {"input": "nums = [3,3], target = 6", "output": "[0,1]", "explanation": ""}
+      ],
+      "constraints": ["2 <= nums.length <= 10^4", "-10^9 <= nums[i] <= 10^9", "-10^9 <= target <= 10^9", "Only one valid answer exists."],
+      "hints": ["Use a hash map to store value -> index as you iterate.", "For each element, check if target - element is already in the map."],
+      "entry_point": "twoSum",
+      "starter_code": "class Solution:\n    def twoSum(self, nums: list[int], target: int) -> list[int]:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[2, 7, 11, 15], 9], "expected": [0, 1]},
+        {"args": [[3, 2, 4], 6], "expected": [1, 2]},
+        {"args": [[3, 3], 6], "expected": [0, 1]}
+      ]
+    },
+    {
+      "slug": "valid-parentheses",
+      "id": 20,
+      "title": "Valid Parentheses",
+      "difficulty": "Easy",
+      "tags": ["String", "Stack"],
+      "companies": ["Amazon", "Microsoft", "Bloomberg"],
+      "description": "Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.\n\nAn input string is valid if:\n1. Open brackets must be closed by the same type of brackets.\n2. Open brackets must be closed in the correct order.\n3. Every close bracket has a corresponding open bracket of the same type.",
+      "examples": [
+        {"input": "s = \"()\"", "output": "true", "explanation": ""},
+        {"input": "s = \"()[]{}\"", "output": "true", "explanation": ""},
+        {"input": "s = \"(]\"", "output": "false", "explanation": ""}
+      ],
+      "constraints": ["1 <= s.length <= 10^4", "s consists of parentheses only '()[]{}'."],
+      "hints": ["Use a stack. Push opening brackets; on a closing bracket, the top of the stack must be its match."],
+      "entry_point": "isValid",
+      "starter_code": "class Solution:\n    def isValid(self, s: str) -> bool:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": ["()"], "expected": true},
+        {"args": ["()[]{}"], "expected": true},
+        {"args": ["(]"], "expected": false},
+        {"args": ["([)]"], "expected": false},
+        {"args": ["{[]}"], "expected": true}
+      ]
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock",
+      "id": 121,
+      "title": "Best Time to Buy and Sell Stock",
+      "difficulty": "Easy",
+      "tags": ["Array", "Dynamic Programming"],
+      "companies": ["Amazon", "Facebook", "Microsoft"],
+      "description": "You are given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day.\n\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\n\nReturn the maximum profit you can achieve. If you cannot achieve any profit, return `0`.",
+      "examples": [
+        {"input": "prices = [7,1,5,3,6,4]", "output": "5", "explanation": "Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5."},
+        {"input": "prices = [7,6,4,3,1]", "output": "0", "explanation": "No transactions are done and the max profit = 0."}
+      ],
+      "constraints": ["1 <= prices.length <= 10^5", "0 <= prices[i] <= 10^4"],
+      "hints": ["Track the minimum price seen so far and the best profit achievable at each step."],
+      "entry_point": "maxProfit",
+      "starter_code": "class Solution:\n    def maxProfit(self, prices: list[int]) -> int:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[7, 1, 5, 3, 6, 4]], "expected": 5},
+        {"args": [[7, 6, 4, 3, 1]], "expected": 0},
+        {"args": [[1, 2]], "expected": 1}
+      ]
+    },
+    {
+      "slug": "valid-anagram",
+      "id": 242,
+      "title": "Valid Anagram",
+      "difficulty": "Easy",
+      "tags": ["Hash Table", "String", "Sorting"],
+      "companies": ["Amazon", "Bloomberg"],
+      "description": "Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.\n\nAn anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+      "examples": [
+        {"input": "s = \"anagram\", t = \"nagaram\"", "output": "true", "explanation": ""},
+        {"input": "s = \"rat\", t = \"car\"", "output": "false", "explanation": ""}
+      ],
+      "constraints": ["1 <= s.length, t.length <= 5 * 10^4", "s and t consist of lowercase English letters."],
+      "hints": ["Count character frequencies and compare, or sort both strings."],
+      "entry_point": "isAnagram",
+      "starter_code": "class Solution:\n    def isAnagram(self, s: str, t: str) -> bool:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": ["anagram", "nagaram"], "expected": true},
+        {"args": ["rat", "car"], "expected": false},
+        {"args": ["a", "ab"], "expected": false}
+      ]
+    },
+    {
+      "slug": "group-anagrams",
+      "id": 49,
+      "title": "Group Anagrams",
+      "difficulty": "Medium",
+      "tags": ["Array", "Hash Table", "String", "Sorting"],
+      "companies": ["Amazon", "Facebook", "Uber"],
+      "description": "Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.\n\nNote: for grading, return each group's members sorted, and the list of groups sorted; the sandbox normalizes ordering before comparing.",
+      "examples": [
+        {"input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]", "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]", "explanation": ""},
+        {"input": "strs = [\"\"]", "output": "[[\"\"]]", "explanation": ""}
+      ],
+      "constraints": ["1 <= strs.length <= 10^4", "0 <= strs[i].length <= 100", "strs[i] consists of lowercase English letters."],
+      "hints": ["Use the sorted string (or a character-count tuple) as a hash key to bucket anagrams."],
+      "entry_point": "groupAnagrams",
+      "compare": "unordered_groups",
+      "starter_code": "class Solution:\n    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [["eat", "tea", "tan", "ate", "nat", "bat"]], "expected": [["ate", "eat", "tea"], ["bat"], ["nat", "tan"]]},
+        {"args": [[""]], "expected": [[""]]},
+        {"args": [["a"]], "expected": [["a"]]}
+      ]
+    },
+    {
+      "slug": "longest-substring-without-repeating-characters",
+      "id": 3,
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "tags": ["Hash Table", "String", "Sliding Window"],
+      "companies": ["Amazon", "Bloomberg", "Adobe"],
+      "description": "Given a string `s`, find the length of the longest substring without repeating characters.",
+      "examples": [
+        {"input": "s = \"abcabcbb\"", "output": "3", "explanation": "The answer is \"abc\", with the length of 3."},
+        {"input": "s = \"bbbbb\"", "output": "1", "explanation": "The answer is \"b\", with the length of 1."},
+        {"input": "s = \"pwwkew\"", "output": "3", "explanation": "The answer is \"wke\", with the length of 3."}
+      ],
+      "constraints": ["0 <= s.length <= 5 * 10^4", "s consists of English letters, digits, symbols and spaces."],
+      "hints": ["Use a sliding window with a set/map of last-seen indices; move the left boundary past any repeat."],
+      "entry_point": "lengthOfLongestSubstring",
+      "starter_code": "class Solution:\n    def lengthOfLongestSubstring(self, s: str) -> int:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": ["abcabcbb"], "expected": 3},
+        {"args": ["bbbbb"], "expected": 1},
+        {"args": ["pwwkew"], "expected": 3},
+        {"args": [""], "expected": 0}
+      ]
+    },
+    {
+      "slug": "3sum",
+      "id": 15,
+      "title": "3Sum",
+      "difficulty": "Medium",
+      "tags": ["Array", "Two Pointers", "Sorting"],
+      "companies": ["Amazon", "Facebook", "Adobe"],
+      "description": "Given an integer array `nums`, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.\n\nNotice that the solution set must not contain duplicate triplets. The sandbox normalizes triplet and list ordering before comparing.",
+      "examples": [
+        {"input": "nums = [-1,0,1,2,-1,-4]", "output": "[[-1,-1,2],[-1,0,1]]", "explanation": ""},
+        {"input": "nums = [0,1,1]", "output": "[]", "explanation": "The only possible triplet does not sum up to 0."}
+      ],
+      "constraints": ["3 <= nums.length <= 3000", "-10^5 <= nums[i] <= 10^5"],
+      "hints": ["Sort the array, fix one element, then use two pointers for the remaining pair. Skip duplicates."],
+      "entry_point": "threeSum",
+      "compare": "unordered_groups",
+      "starter_code": "class Solution:\n    def threeSum(self, nums: list[int]) -> list[list[int]]:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[-1, 0, 1, 2, -1, -4]], "expected": [[-1, -1, 2], [-1, 0, 1]]},
+        {"args": [[0, 1, 1]], "expected": []},
+        {"args": [[0, 0, 0]], "expected": [[0, 0, 0]]}
+      ]
+    },
+    {
+      "slug": "number-of-islands",
+      "id": 200,
+      "title": "Number of Islands",
+      "difficulty": "Medium",
+      "tags": ["Array", "DFS", "BFS", "Union Find", "Matrix"],
+      "companies": ["Amazon", "Google", "Facebook"],
+      "description": "Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands.\n\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
+      "examples": [
+        {"input": "grid = [[\"1\",\"1\",\"0\"],[\"1\",\"0\",\"0\"],[\"0\",\"0\",\"1\"]]", "output": "2", "explanation": ""}
+      ],
+      "constraints": ["m == grid.length", "n == grid[i].length", "1 <= m, n <= 300", "grid[i][j] is '0' or '1'."],
+      "hints": ["Iterate cells; when you find a '1', flood-fill (DFS/BFS) all connected land and count one island."],
+      "entry_point": "numIslands",
+      "starter_code": "class Solution:\n    def numIslands(self, grid: list[list[str]]) -> int:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[["1", "1", "0"], ["1", "0", "0"], ["0", "0", "1"]]], "expected": 2},
+        {"args": [[["1", "1", "1"], ["0", "1", "0"], ["1", "1", "1"]]], "expected": 1}
+      ]
+    },
+    {
+      "slug": "coin-change",
+      "id": 322,
+      "title": "Coin Change",
+      "difficulty": "Medium",
+      "tags": ["Array", "Dynamic Programming", "BFS"],
+      "companies": ["Amazon", "Google", "Uber"],
+      "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return `-1`.\n\nYou may assume that you have an infinite number of each kind of coin.",
+      "examples": [
+        {"input": "coins = [1,2,5], amount = 11", "output": "3", "explanation": "11 = 5 + 5 + 1"},
+        {"input": "coins = [2], amount = 3", "output": "-1", "explanation": ""},
+        {"input": "coins = [1], amount = 0", "output": "0", "explanation": ""}
+      ],
+      "constraints": ["1 <= coins.length <= 12", "1 <= coins[i] <= 2^31 - 1", "0 <= amount <= 10^4"],
+      "hints": ["Bottom-up DP: dp[x] = min coins to make x; dp[x] = min(dp[x - coin] + 1)."],
+      "entry_point": "coinChange",
+      "starter_code": "class Solution:\n    def coinChange(self, coins: list[int], amount: int) -> int:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[1, 2, 5], 11], "expected": 3},
+        {"args": [[2], 3], "expected": -1},
+        {"args": [[1], 0], "expected": 0}
+      ]
+    },
+    {
+      "slug": "product-of-array-except-self",
+      "id": 238,
+      "title": "Product of Array Except Self",
+      "difficulty": "Medium",
+      "tags": ["Array", "Prefix Sum"],
+      "companies": ["Amazon", "Facebook", "Apple"],
+      "description": "Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.\n\nYou must write an algorithm that runs in `O(n)` time and without using the division operation.",
+      "examples": [
+        {"input": "nums = [1,2,3,4]", "output": "[24,12,8,6]", "explanation": ""},
+        {"input": "nums = [-1,1,0,-3,3]", "output": "[0,0,9,0,0]", "explanation": ""}
+      ],
+      "constraints": ["2 <= nums.length <= 10^5", "-30 <= nums[i] <= 30", "The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer."],
+      "hints": ["Compute prefix products left-to-right, then multiply by suffix products right-to-left."],
+      "entry_point": "productExceptSelf",
+      "starter_code": "class Solution:\n    def productExceptSelf(self, nums: list[int]) -> list[int]:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[1, 2, 3, 4]], "expected": [24, 12, 8, 6]},
+        {"args": [[-1, 1, 0, -3, 3]], "expected": [0, 0, 9, 0, 0]}
+      ]
+    },
+    {
+      "slug": "trapping-rain-water",
+      "id": 42,
+      "title": "Trapping Rain Water",
+      "difficulty": "Hard",
+      "tags": ["Array", "Two Pointers", "Dynamic Programming", "Stack"],
+      "companies": ["Amazon", "Google", "Goldman Sachs"],
+      "description": "Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.",
+      "examples": [
+        {"input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]", "output": "6", "explanation": ""},
+        {"input": "height = [4,2,0,3,2,5]", "output": "9", "explanation": ""}
+      ],
+      "constraints": ["n == height.length", "1 <= n <= 2 * 10^4", "0 <= height[i] <= 10^5"],
+      "hints": ["Two pointers from both ends; water above each bar is min(maxLeft, maxRight) - height[i]."],
+      "entry_point": "trap",
+      "starter_code": "class Solution:\n    def trap(self, height: list[int]) -> int:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]], "expected": 6},
+        {"args": [[4, 2, 0, 3, 2, 5]], "expected": 9}
+      ]
+    },
+    {
+      "slug": "median-of-two-sorted-arrays",
+      "id": 4,
+      "title": "Median of Two Sorted Arrays",
+      "difficulty": "Hard",
+      "tags": ["Array", "Binary Search", "Divide and Conquer"],
+      "companies": ["Amazon", "Google", "Adobe"],
+      "description": "Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return the median of the two sorted arrays.\n\nThe overall run time complexity should be `O(log (m+n))`.",
+      "examples": [
+        {"input": "nums1 = [1,3], nums2 = [2]", "output": "2.00000", "explanation": "merged array = [1,2,3] and median is 2."},
+        {"input": "nums1 = [1,2], nums2 = [3,4]", "output": "2.50000", "explanation": "merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5."}
+      ],
+      "constraints": ["nums1.length == m", "nums2.length == n", "0 <= m <= 1000", "0 <= n <= 1000", "1 <= m + n <= 2000"],
+      "hints": ["Binary search the partition on the smaller array so left halves <= right halves."],
+      "entry_point": "findMedianSortedArrays",
+      "starter_code": "class Solution:\n    def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:\n        # Write your code here\n        pass",
+      "test_cases": [
+        {"args": [[1, 3], [2]], "expected": 2.0},
+        {"args": [[1, 2], [3, 4]], "expected": 2.5}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(15, 16, 17, 0.8); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink); font-size: 15px; letter-spacing: -0.3px; }
+.brand:hover { color: var(--ink); }
+.brand-mark { color: var(--primary); }
+.nav-links { display: flex; gap: 4px; }
+.nav-link {
+  padding: 6px 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  color: var(--ink-subtle); transition: color 0.12s, background 0.12s;
+}
+.nav-link:hover { color: var(--ink); background: var(--surface-2); }
+.nav-link.active { color: var(--ink); background: var(--surface-2); }
+
+/* Markdown body */
+.md { color: var(--ink-muted); font-size: 15px; }
+.md p { margin: 0 0 12px; }
+.md code {
+  background: var(--surface-3); padding: 2px 6px; border-radius: 4px;
+  font-size: 13px; color: var(--ink);
+}
+.md ol, .md ul { padding-left: 20px; }
+
+/* Detail split collapses on narrow screens */
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr !important; }
+  .detail-grid > div:last-child { position: static !important; }
+}
